@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:mj="http://mojarra.dev.java.net/mojarra_ext"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
+	<ui:define name="content">
+		<h:form>
+			<h:panelGrid border="1" columns="2">
+			<h:outputText value="Arriendo o Venta"></h:outputText>
+				<select name="Elegir Componente" value="#{registroInmueblesBean.id}">
+					<option>Arriendo</option>
+					<option>Venta</option>
+
+				</select>
+				<h:outputText value="Dirección"></h:outputText>
+				<h:inputText required="true" maxlength="100" size="25"
+					value="#{registroInmueblesBean.INMDIR}"></h:inputText>	
+				
+				<h:outputText value="Estrato"></h:outputText>
+				<h:inputText value="#{registroInmueblesBean.INMESTRATO}"></h:inputText>
+				
+				<h:outputText value="Agua"></h:outputText>
+				<select name="Elegir Componente" value="#{registroInmueblesBean.INMAGUA}">
+					<option>SI</option>
+					<option>NO</option>
+				</select>
+				
+				
+				<h:outputText value="Luz"></h:outputText>
+				<select name="Elegir Componente" value="#{registroInmueblesBean.INMLUZ}">
+					<option>SI</option>
+					<option>NO</option>
+				</select>
+				
+				
+				<h:outputText value="Gas"></h:outputText>
+				<select name="Elegir Componente" value="#{registroInmueblesBean.INMGAS}">
+					<option>SI</option>
+					<option>NO</option>
+				</select>
+				
+				<h:outputText value="Telefono de Contacto"></h:outputText>
+				<h:inputText required="true" size="25" maxlength="10"
+					value="#{registroInmueblesBean.INMTEL}"></h:inputText>
+					
+				<h:outputText value="Reparaciones"></h:outputText>
+				<h:inputText value="#{registroInmueblesBean.INMREPARA}"></h:inputText>
+				
+				<h:outputText value="Mejoras"></h:outputText>
+				<h:inputText value="#{registroInmueblesBean.IMNMEJORA}"></h:inputText>
+				
+				<h:outputText value="Novedades"></h:outputText>
+				<h:inputText value="#{registroInmueblesBean.INMNOVED}"></h:inputText>
+				
+				<h:outputText value="Inversiones"></h:outputText>
+				<h:inputText value="#{registroInmueblesBean.INMINVERSI}"></h:inputText>
+				
+				<h:outputText value="URL"></h:outputText>
+				<h:inputText value="#{registroInmueblesBean.INMURL}"></h:inputText>
+				
+				<h:outputText value="Precio"></h:outputText>
+				<h:inputText value="#{registroInmueblesBean.INMIDPAGO}"></h:inputText>
+				
+				
+					
+			</h:panelGrid>
+
+			<h:commandButton value="Guardar" id="guardar"
+				actionListener="#{registroInmueblesBean.registroInmuebles}"></h:commandButton>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

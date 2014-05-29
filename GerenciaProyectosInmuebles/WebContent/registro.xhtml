@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:mj="http://mojarra.dev.java.net/mojarra_ext"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
+	<ui:define name="content">
+		<h:form>
+			<h:panelGrid border="1" columns="2">
+				<h:outputText value="Nombre"></h:outputText>
+				<h:inputText value="#{registroBean.nombre}" required="true" size="20" maxlength="100"></h:inputText>  
+				<h:outputText value="Apellido"></h:outputText>
+				<h:inputText value="#{registroBean.apellido}" required="true" maxlength="100" size="20"></h:inputText>
+				<h:outputText value="Usuario"></h:outputText>
+				<h:inputText value="#{registroBean.usuario}" required="true" size="20" maxlength="10"></h:inputText>
+				<h:outputText value="Password"></h:outputText>
+				<h:inputSecret value="#{registroBean.password}" required="true" size="20" maxlength="20"></h:inputSecret>
+				<h:outputText value="Confirme Password"></h:outputText>
+				<h:inputSecret value="#{registroBean.conPassword}" required="true" size="20" maxlength="20"></h:inputSecret>
+				<h:outputText value="Email"></h:outputText>
+				<h:inputText value="#{registroBean.email}" required="true" size="20" maxlength="100"></h:inputText>
+			</h:panelGrid>
+			<h:commandButton id="guardarRegistroId" value="Guardar" actionListener="#{registroBean.guardar}"></h:commandButton>
+			<h:outputText value="#{registroBean.error}" rendered="#{registroBean.bolerr}" color="red" ></h:outputText>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

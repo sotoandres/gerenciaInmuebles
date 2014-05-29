@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        
+                                                         <h3>POR FAVOR BUSQUE EL INMUEBLE</h3>
+    	<h:form id="login-form">
+            
+           
+           <table width="60%" class="tabla1"
+							align="center">
+							<tr>
+							<td></td>
+							</tr>
+							<tr>
+							<td></td>
+							</tr>
+							<tr>
+							<td></td>
+							</tr>
+							<tr>
+							<td></td>
+							</tr>
+							<tr>
+								<td align="right">*ID del Inmueble:</td>
+								<td align="left">
+									<!-- ************************ --> <p:inputText
+										value="#{registroInmueblesBean.origen}" size="50"
+										maxlength="100" autocomplete="off" id="id"
+										required="true" label="idInmueble"
+																			
+										validatorMessage="Debe ingresar el id del inmueble">
+										<f:validateLength minimum="3" />
+										
+									
+								</td>
+														
+							</tr>
+				                                 
+						</table>
+            
+            <center>
+								<p:dataTable id="report" var="inmueble" style="width:98%"
+									emptyMessage="No se han encontrado registros"
+                                                                        value="#{registroInmueblesBean.consultainmueble}" paginator="true"
+									rows="5" lazy="false" rowsPerPageTemplate="5,10,15,20"
+									paginatorPosition="bottom"
+									paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                                                                        filteredValue="#{registroInmueblesBean.id}">
+									<f:facet name="header" style="font-size:8px">Listado de Inmuebles</f:facet>
+									<p:column id="inInmueble" headerText="ID del Inmueble"
+                                                                                  filterBy="#{registroInmueblesBean.id}"
+										styleClass="EstiloCeldaMenCentrado">
+                                                                           
+									</p:column>
+
+                                     <p:column sortBy="#{registroInmueblesBean.INMTEL}" styleClass="EstiloCeldaMenCentrado">
+										<f:facet name="header">
+											<h:outputText value="Telefono" />
+										</f:facet>
+                                   <h:outputText value="#{registroInmueblesBean.INMTEL}" />
+									</p:column>
+
+                                  <p:column sortBy="#{registroInmueblesBean.INMDIR}"
+										styleClass="EstiloCeldaMenCentrado">
+										<f:facet name="header">
+											<h:outputText value="Direccion" />
+										</f:facet>
+                                                                            <h:outputText value="#{registroInmueblesBean.INMDIR}" />
+									</p:column>
+
+                                   <p:column sortBy="#{registroInmueblesBean.INMVENOARR}"
+										styleClass="EstiloCeldaMenCentrado">
+										<f:facet name="header">
+											<h:outputText value="Venta o Arriendo" />
+										</f:facet>
+                                    <h:outputText value="#{registroInmueblesBean.INMVENOARR}" />
+									</p:column>
+
+                                   <p:column sortBy="#{registroInmueblesBean.INMESTRATO}"
+										styleClass="EstiloCeldaMenCentrado">
+										<f:facet name="header">
+											<h:outputText value="Estrato" />
+										</f:facet>
+
+                                   <h:outputText value="#{registroInmueblesBean.INMAGUA}" />
+									</p:column>
+
+									<p:column styleClass="EstiloCeldaMenCentrado" headerText="Agua">
+                                                                            <h:outputText value="#{registroInmueblesBean.INMAGUA}" />
+									</p:column>
+									
+									               <h:outputText value="#{registroInmueblesBean.INMLUZ}" />
+									</p:column>
+
+									<p:column styleClass="EstiloCeldaMenCentrado" headerText="Luz">
+                                                                            <h:outputText value="#{registroInmueblesBean.INMLUZ}" />
+									</p:column>
+									
+													               <h:outputText value="#{registroInmueblesBean.INMGAS}" />
+									</p:column>
+
+									<p:column styleClass="EstiloCeldaMenCentrado" headerText="Gas">
+                                                                            <h:outputText value="#{registroInmueblesBean.INMGAS}" />
+									</p:column>
+									
+																			               <h:outputText value="#{registroInmueblesBean.INMREPARA}" />
+									</p:column>
+
+									<p:column styleClass="EstiloCeldaMenCentrado" headerText="Reparaciones">
+                                                                            <h:outputText value="#{registroInmueblesBean.INMREPARA}" />
+									</p:column>
+									
+																							               <h:outputText value="#{registroInmueblesBean.IMNMEJORA}" />
+									</p:column>
+
+									<p:column styleClass="EstiloCeldaMenCentrado" headerText="Mejoras">
+                                                                            <h:outputText value="#{registroInmueblesBean.IMNMEJORA}" />
+									</p:column>
+									
+											     <h:outputText value="#{registroInmueblesBean.INMNOVED}" />
+									</p:column>
+
+									<p:column styleClass="EstiloCeldaMenCentrado" headerText="Novedades">
+                                                                            <h:outputText value="#{registroInmueblesBean.INMNOVED}" />
+									</p:column>
+									
+											    <h:outputText value="#{registroInmueblesBean.INMINVERSI}" />
+									</p:column>
+
+									<p:column styleClass="EstiloCeldaMenCentrado" headerText="Inversiones">
+                                                                            <h:outputText value="#{registroInmueblesBean.INMINVERSI}" />
+									</p:column>
+									
+														    <h:outputText value="#{registroInmueblesBean.INMURL}" />
+									</p:column>
+
+									<p:column styleClass="EstiloCeldaMenCentrado" headerText="URL">
+                                                                            <h:outputText value="#{registroInmueblesBean.INMURL}" />
+									</p:column>
+									
+																					    <h:outputText value="#{registroInmueblesBean.INMIDPAGO}" />
+									</p:column>
+
+									<p:column styleClass="EstiloCeldaMenCentrado" headerText="Pago">
+                                                                            <h:outputText value="#{registroInmueblesBean.INMIDPAGO}" />
+									</p:column>
+
+							</p:dataTable>
+                </center>
+
+        </h:form>
+    </h:body>
+</html>
