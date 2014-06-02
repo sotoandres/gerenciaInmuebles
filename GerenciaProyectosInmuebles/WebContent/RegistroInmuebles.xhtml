@@ -72,6 +72,10 @@
 
 			<h:commandButton value="Guardar" id="guardar"
 				actionListener="#{registroInmueblesBean.registroInmuebles}"></h:commandButton>
+			<h:commandButton value="Modificar" id="modificar"
+				actionListener="#{registroInmueblesBean.updateInmuebles}"></h:commandButton>
+			<h:commandButton value="Eliminar" id="eliminar"
+				actionListener="#{registroInmueblesBean.deleteInmuebles}"></h:commandButton>
 		</h:form>
 	</ui:define>
 </ui:composition>

@@ -1,6 +1,7 @@
 package com.muebles.persistencia;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -98,6 +99,66 @@ public class InmueblesDao {
 
 	}
 	
+	
+	public boolean deleteInmueble(int codInmueble){
+		Conexion conexion = new Conexion();	
+		boolean result = false;
+		PreparedStatement preparedStmt = null;
+		try {
+			Connection connection= conexion.getInstance().crearConexion();
+			Statement comando = connection.createStatement();
+			String sql = "DELETE  FROM INMUEBLE WHERE id = ? ";
+			preparedStmt = connection.prepareStatement(sql);
+			preparedStmt.setInt(1, codInmueble);       
+	        preparedStmt.executeUpdate();
+	        result = true;
+	        
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			conexion.getInstance().cerrarConn();
+		}
+		return result;
+
+		
+	}
+	
+	public boolean updateInmueble(Inmuebles Inm){
+		Conexion conexion = new Conexion();	
+		boolean result = false;
+		PreparedStatement preparedStmt = null;
+		try {
+			Connection connection= conexion.getInstance().crearConexion();
+			Statement comando = connection.createStatement();
+			String sql = "UPDATE INMUEBLE SET tipo = ? , direccion = ? , estrato = ? , agua = ? ,"
+					+ " luz = ? , gas = ? , telefono = ? , reparaciones = ? , mejoras = ? ,"
+					+ " novedades = ? , inversiones = ? , url = ? , idPago = ?   WHERE id = ? ";
+			preparedStmt = connection.prepareStatement(sql);
+			preparedStmt.setString(1, Inm.getINMVENOARR()); 
+			preparedStmt.setString(2, Inm.getINMDIR()); 
+			preparedStmt.setInt(3, Inm.getINMESTRATO()); 
+			preparedStmt.setString(4, Inm.getINMAGUA()); 
+			preparedStmt.setString(5, Inm.getINMLUZ()); 
+			preparedStmt.setString(6, Inm.getINMGAS()); 
+			preparedStmt.setString(7, Inm.getINMTEL()); 
+			preparedStmt.setString(8, Inm.getINMREPARA()); 
+			preparedStmt.setString(9, Inm.getIMNMEJORA()); 
+			preparedStmt.setString(10, Inm.getINMNOVED()); 
+			preparedStmt.setString(11, Inm.getINMINVERSI()); 
+			preparedStmt.setString(12, Inm.getINMURL()); 
+			preparedStmt.setInt(13, Inm.getINMIDPAGO()); 
+	        preparedStmt.executeUpdate();
+	        result = true;
+	        
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			conexion.getInstance().cerrarConn();
+		}
+		return result;
+
+		
+	}
 
 
 }

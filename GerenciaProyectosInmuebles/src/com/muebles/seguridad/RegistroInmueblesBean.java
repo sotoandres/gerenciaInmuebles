@@ -74,6 +74,31 @@ public class RegistroInmueblesBean extends Inmuebles{
 		return consultaInmuebleIDLista;
 	
 	}
+	
+	public void deleteInmuebles(){
+		InmueblesDao deleteInmuebleID = new InmueblesDao();	
+		deleteInmuebleID.deleteInmueble(RegistroInmueblesBean.super.getId());
+	}
+	
+	public void updateInmuebles(){
+		InmueblesDao updateInmueble = new InmueblesDao();
+		Inmuebles	inmuebles = new Inmuebles();
+		InmueblesDao insertarInmuebles = new InmueblesDao();
+		inmuebles.setINMVENOARR(RegistroInmueblesBean.super.getINMVENOARR());
+		inmuebles.setINMDIR(RegistroInmueblesBean.super.getINMDIR());
+		inmuebles.setINMESTRATO(RegistroInmueblesBean.super.getINMESTRATO());
+		inmuebles.setINMAGUA(RegistroInmueblesBean.super.getINMAGUA());
+		inmuebles.setINMLUZ(RegistroInmueblesBean.super.getINMLUZ());
+		inmuebles.setINMGAS(RegistroInmueblesBean.super.getINMGAS());
+		inmuebles.setINMTEL(RegistroInmueblesBean.super.getINMTEL());
+		inmuebles.setINMREPARA(RegistroInmueblesBean.super.getINMREPARA());
+		inmuebles.setIMNMEJORA(RegistroInmueblesBean.super.getIMNMEJORA());
+		inmuebles.setINMNOVED(RegistroInmueblesBean.super.getINMNOVED());
+		inmuebles.setINMINVERSI(RegistroInmueblesBean.super.getINMINVERSI());
+		inmuebles.setINMURL(RegistroInmueblesBean.super.getINMURL());
+		inmuebles.setINMIDPAGO(RegistroInmueblesBean.super.getINMIDPAGO());
+		updateInmueble.updateInmueble(inmuebles);
+	}
 
 	public String getidusuario() {
 		return idusuario;
